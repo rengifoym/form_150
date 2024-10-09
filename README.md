@@ -4,66 +4,66 @@ Este es un proyecto basado en Strapi que incluye un plugin personalizado llamado
 
 Características
 
-Validación de formularios
-Almacenamiento de datos: Los datos del formulario son almacenados en Strapi y pueden ser exportados en formatos JSON o CSV.
-Middleware de validación: Implementación de un middleware llamado validador.js para validar los datos del formulario antes de ser enviados.
+Validación de formularios<br/>
+Almacenamiento de datos: Los datos del formulario son almacenados en Strapi y pueden ser exportados en formatos JSON o CSV.<br/>
+Middleware de validación: Implementación de un middleware llamado validador.js para validar los datos del formulario antes de ser enviados.<br/>
 
 Requisitos
 
-Node.js (versión recomendada: 14.x o superior)
-npm (se recomienda la última versión)
-Strapi 4.x o superior
-SQLite (o cualquier base de datos compatible con Strapi)
+Node.js (versión recomendada: 14.x o superior)<br/>
+npm (se recomienda la última versión)<br/>
+Strapi 4.x o superior<br/>
+SQLite (o cualquier base de datos compatible con Strapi)<br/>
 
 Instalación
-Sigue estos pasos para instalar y configurar el proyecto en tu máquina local:
-Clonar el repositorio.
-git clone https://github.com/rengifoym/form_150.git
-Ir a la caperta de tu repositorio clonado.
-cd tu-repositorio
-instalar dependencias.
-npm install
-iniciar strapi.
-npx strapi develop
+Sigue estos pasos para instalar y configurar el proyecto en tu máquina local:<br/>
+Clonar el repositorio.<br/>
+git clone https://github.com/rengifoym/form_150.git<br/>
+Ir a la caperta de tu repositorio clonado.<br/>
+cd tu-repositorio<br/>
+instalar dependencias.<br/>
+npm install<br/>
+iniciar strapi.<br/>
+npx strapi develop<br/>
 
-Una vez ya se alla corrido el backend puedes utilizar un aplicativo como postman y enviar las solicitudes con las siguientes rutas.
-Crear una linea nueva en el formulario
-    POST http://localhost:1337/formulario/create
-    en el body utilizamos el raw con el siguiente cuerpo
-    {
-        "name": "riquelme2",
-        "email": "a2@pstnexample.com",
-        "message": "Hola.....señor"
-    }
-Tener encuenta estas validaciones
-El middleware personalizado validará los siguientes campos:
-name: Debe tener al menos 3 caracteres.
-email: Debe ser una dirección de correo electrónico válida y que no se encuentre ya en la bd.
-message: Debe tener al menos 10 caracteres.
+Una vez ya se alla corrido el backend puedes utilizar un aplicativo como postman y enviar las solicitudes con las siguientes rutas.<br/>
+Crear una linea nueva en el formulario<br/>
+    POST http://localhost:1337/formulario/create<br/>
+    en el body utilizamos el raw con el siguiente cuerpo<br/>
+    {<br/>
+        "name": "riquelme2",<br/>
+        "email": "a2@pstnexample.com",<br/>
+        "message": "Hola.....señor"<br/>
+    }<br/>
+Tener encuenta estas validaciones<br/>
+El middleware personalizado validará los siguientes campos:<br/>
+name: Debe tener al menos 3 caracteres.<br/>
+email: Debe ser una dirección de correo electrónico válida y que no se encuentre ya en la bd.<br/>
+message: Debe tener al menos 10 caracteres.<br/>
 
-Si los datos no cumplen con estas validaciones, se devolverá un error 400 con un mensaje apropiado a continuacion un ejemplo de como quedaria.
-    {
-        "data": null,
-        "error": {
-            "status": 400,
-            "name": "ValidationError",
-            "message": "Por favor ingrese un correo electrónico válido."
-        }
-    }
-Visor de datos
+Si los datos no cumplen con estas validaciones, se devolverá un error 400 con un mensaje apropiado a continuacion un ejemplo de como quedaria.<br/>
+    {<br/>
+        "data": null,<br/>
+        "error": {<br/>
+            "status": 400,<br/>
+            "name": "ValidationError",<br/>
+            "message": "Por favor ingrese un correo electrónico válido."<br/>
+        }<br/>
+    }<br/>
+Visor de datos<br/>
 
-con la siguiente ruta podemos visualizar los registros que tenemos en total
-POST http://localhost:1337/formulario/find
+con la siguiente ruta podemos visualizar los registros que tenemos en total<br/>
+POST http://localhost:1337/formulario/find<br/>
 
-Exportación de Datos csv
-con la siguiente ruta podemos descargar la informacion csv con el encabezado de name, email y message 
-http://localhost:1337/formulario/export?format=csv
+Exportación de Datos csv<br/>
+con la siguiente ruta podemos descargar la informacion csv con el encabezado de name, email y message<br/>
+http://localhost:1337/formulario/export?format=csv<br/>
 
-Exportación de Datos Json
-con la siguiente ruta podemos descargar la informacion csv con el encabezado de name, email y message 
-Exportación de Datos 
-con la siguiente ruta podemos descargar la informacion csv con el encabezado de name, email y message 
-http://localhost:1337/formulario/export?format=json
+Exportación de Datos Json<br/>
+con la siguiente ruta podemos descargar la informacion csv con el encabezado de name, email y message<br/> 
+Exportación de Datos <br/>
+con la siguiente ruta podemos descargar la informacion csv con el encabezado de name, email y message<br/>
+http://localhost:1337/formulario/export?format=json<br/>
 
 Los formularios pueden ser exportados en formato JSON o CSV.
 
